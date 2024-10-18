@@ -9,7 +9,6 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
     /**
@@ -44,5 +43,11 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function isFreshGraduate()
+    {
+        // Misalnya cek apakah user fresh graduate, bisa berdasarkan atribut tertentu seperti graduation date.
+        return $this->graduation_date && $this->graduation_date->diffInYears(now()) <= 1;
     }
 }
