@@ -79,10 +79,10 @@
                         required autocomplete="new-password">
                     <label for="password-confirm">{{ __('Confirm Password') }}</label>
                 </div>
-                <div class="form-group">
-                    <label for="is_fresh_graduate">Apakah Anda fresh graduate?</label>
+                <div class="form-group" style="color: white">
                     <input type="checkbox" name="is_fresh_graduate" id="is_fresh_graduate" value="1">
-                </div>
+                    <label for="is_fresh_graduate">Apakah Anda fresh graduate?</label>
+                </div><br>
                 <div class="remember-forgot">
                     <label>
                         <input type="checkbox">

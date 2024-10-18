@@ -11,8 +11,16 @@ class LowonganController extends Controller
     // Tampilkan semua lowongan
     public function index()
     {
-        $lowongan = Lowongan::all();
         $lowongan = Lowongan::with('komunitas')->get();
+        return view('lowongan.index', compact('lowongan'));
+        $lowongan = Lowongan::where('created_at', '>=', now()->subDays(3));
+        if (!$request->user()->is_fresh_graduate) {
+            $lowongan = Lowongan::all(); // Ambil semua lowongan untuk ordinary users
+        } else {
+            // Jika priority user, ambil lowongan yang sudah difilter
+            $lowongan = $lowongan->get();
+        }
+
         return view('lowongan.index', compact('lowongan'));
     }
 

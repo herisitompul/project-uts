@@ -39,11 +39,11 @@
                 <td><img src="{{ asset('gambar/' . $lowongan->gambar) }}" alt="" style="width: 150px"></td>
                 <td>
                 <a href="{{ route('lowongan.edit', $lowongan->id) }}" class="btn btn-warning">Edit</a>
-                    <form action="{{ route('lowongan.destroy', $lowongan->id) }}" method="POST" style="display: inline">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Hapus</button>
-                    </form>
+                <form action="{{ route('lowongan.destroy', $lowongan->id) }}" method="POST" style="display: inline">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">Hapus</button>
+                </form>
                 </td>
             </tr>
 
